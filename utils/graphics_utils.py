@@ -45,7 +45,7 @@ def getWorld2View2(R, t, translate=np.array([.0, .0, .0]), scale=1.0):
     cam_center = C2W[:3, 3]
     cam_center = (cam_center + translate) * scale
     C2W[:3, 3] = cam_center
-    Rt = np.linalg.inv(C2W)
+    Rt = np.linalg.inv(C2W) # W2C
     return np.float32(Rt)
 
 def getProjectionMatrix(znear, zfar, fovX, fovY):
